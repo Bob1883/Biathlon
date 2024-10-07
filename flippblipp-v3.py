@@ -14,11 +14,8 @@ print("       ", 1)
 
 while True: 
     n += 1 
-
-    answer = flippblipp(n)
-    playerAnswer = input(f" Nästa: ")
-
-    if answer != playerAnswer: 
+    
+    if answer := flippblipp(n) != input(f" Nästa: "): 
         print(f" Fel - {answer}")
         print("\n Game over")
         break

@@ -1,13 +1,12 @@
-import random
-from typing import List
+from random import random
 
-def initTarg(numTarg:int = 5) -> List[str]:
+def initTarg(numTarg:int = 5) -> list[str]: 
     targs = []
     for _ in range(numTarg):
         targs.append("*")
     return targs
 
-def displayTargs(targs:List[str]) -> None:
+def displayTargs(targs:list[str]) -> None:
     for i in range(len(targs)):
         print(i + 1, end=" ")
     print("")
@@ -17,11 +16,11 @@ def displayTargs(targs:List[str]) -> None:
 
     print("")
 
-def shoot(targs:List[str], pos:int, hitProb:float) -> str:
+def shoot(targs:list[str], pos:int, hitProb:float) -> str:
     if pos < 1 or pos > len(targs):
         return "Miss"
 
-    if random.random() > hitProb:
+    if random() > hitProb:
         return "Miss"
 
     targ = targs[pos - 1]
@@ -31,12 +30,12 @@ def shoot(targs:List[str], pos:int, hitProb:float) -> str:
     else:
         return "Miss"
 
-def playRound(targs:List[str], totShots:int, initHitProb:float) -> int:
+def playRound(targs:list[str], totShots:int, initHirandomtProb:float) -> int:
     hits = 0
     displayTargs(targs)
 
     for shotNum in range(1, totShots + 1):
-        hitProb = initHitProb - (shotNum - 1) * 0.1
+        hitProb = initHirandomtProb - (shotNum - 1) * 0.1
 
         if hitProb < 0.1: 
             hitProb = 0.1
