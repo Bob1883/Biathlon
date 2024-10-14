@@ -37,17 +37,19 @@ def login(users):
         
         else:
             print("\nInvalid username or password\n")
-            print(" r) Try again")
-            print(" q) Quit\n")
+            
+            while True:
+                print(" r) Try again")
+                print(" q) Quit\n")
 
-            option = input("Option: ")
+                option = input("Option: ")
 
-            if option == "r":
-                continue
-            elif option == "q":
-                return None
-            else:
-                print("\nInvalid option. Please try again.")
+                if option == "r":
+                    break # "break" will exit the inner loop and return to the outer
+                elif option == "q":
+                    return None # "break" will not exit the function entirely
+                else:
+                    print("\nInvalid option. Please try again.")
 
 def userSession(user):
     username = user["username"]
@@ -77,7 +79,7 @@ def userSession(user):
             print("\nInvalid option. Please try again.\n")
 
 def listItems(items):
-    print("\nThese are your items")
+    print("\nThese are your items:")
 
     for i, item in enumerate(items, 1):
         print(f"{i}) {item}")
@@ -106,7 +108,7 @@ def main():
 
     while True:
         print(" l) Log in")
-        print(" r) register")
+        print(" r) Register")
         print(" q) Quit\n")
 
         option = input("Option: ")
